@@ -10,7 +10,9 @@ public class ErrorCounter implements GameEventListener {
 
     @Override
     public void onEvent(GameEvent event) {
-        if (event.type() == GameEventType.ERROR || event.type() == GameEventType.INVALID_MOVE) {
+        GameEventType type = event.type();
+        if (type == GameEventType.ERROR || type == GameEventType.INVALID_MOVE
+                || type == GameEventType.INVALID_COMMAND) {
             errorCount++;
         }
     }

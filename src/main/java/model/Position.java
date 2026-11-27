@@ -15,7 +15,12 @@ public final class Position {
 
     /** Az adott pozícióból egy lépés a megadott irányba. */
     public Position(Position from, Direction direction) {
-        this(from.row + direction.getRowStep(), from.col + direction.getColStep());
+        this(from, direction, 1);
+    }
+
+    /** Az adott pozícióból a megadott számú lépés a megadott irányba. */
+    public Position(Position from, Direction direction, int steps) {
+        this(from.row + direction.getRowStep() * steps, from.col + direction.getColStep() * steps);
     }
 
     public int getRow() {

@@ -24,6 +24,12 @@ class PositionTest {
         assertEquals(new Position(3, 2), new Position(c, Direction.LEFT));
         assertEquals(new Position(3, 4), new Position(c, Direction.RIGHT));
     }
+    @Test
+    void stepWithMultipleSteps() {
+        assertEquals(new Position(2, 4), new Position(new Position(2, 1), Direction.RIGHT, 3));
+        assertEquals(new Position(5, 3), new Position(new Position(2, 3), Direction.DOWN, 3));
+        assertEquals(new Position(2, 1), new Position(new Position(2, 1), Direction.LEFT, 0));
+    }
 
     @Test
     void equalsAndHashCodeWork() {

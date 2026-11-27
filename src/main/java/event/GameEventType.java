@@ -6,6 +6,7 @@ public enum GameEventType {
     PHASE_CHANGED,
     MOVE_DONE,
     INVALID_MOVE,
+    INVALID_COMMAND,
     GAME_ENDED,
     ERROR
 }

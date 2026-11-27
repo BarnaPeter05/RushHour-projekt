@@ -14,7 +14,7 @@ public class AuditLoggerListener implements GameEventListener {
     public void onEvent(GameEvent event) {
         if (event.type() == GameEventType.ERROR) {
             LOGGER.error(event.message());
-        } else if (event.type() == GameEventType.INVALID_MOVE) {
+        } else if (event.type() == GameEventType.INVALID_MOVE || event.type() == GameEventType.INVALID_COMMAND) {
             LOGGER.warn(event.message());
         } else {
             LOGGER.info(event.message());
