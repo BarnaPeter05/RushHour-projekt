@@ -1,0 +1,6 @@
+# A betölthető pályák, nehézség szerint
+beginner
+easy
+medium
+hard
+expert

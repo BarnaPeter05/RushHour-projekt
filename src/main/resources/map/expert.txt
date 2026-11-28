@@ -1,0 +1,9 @@
+# Rush Hour pálya: expert
+# Jel: betű = jármű (X a piros autó), pont = üres mező
+# Optimális megoldás: 21 lépés
+. . . K K K
+F F G . D H
+X X G . D H
+I C C . . .
+I B J A A E
+. B J . . E

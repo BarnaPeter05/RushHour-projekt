@@ -140,3 +140,4 @@ class GameEngineTest {
         assertTrue(state.isExitRequested());
     }
 }
+

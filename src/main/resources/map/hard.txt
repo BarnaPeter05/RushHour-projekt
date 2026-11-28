@@ -1,0 +1,9 @@
+# Rush Hour pálya: hard
+# Jel: betű = jármű (X a piros autó), pont = üres mező
+# Optimális megoldás: 13 lépés
+A A B . . E
+. . B . F E
+X X G . F .
+H . G . F .
+H C . D D .
+. C . . . .

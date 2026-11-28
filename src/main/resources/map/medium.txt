@@ -1,0 +1,9 @@
+# Rush Hour pálya: medium
+# Jel: betű = jármű (X a piros autó), pont = üres mező
+# Optimális megoldás: 10 lépés
+. E H H I I
+. E . . J J
+X X D G F .
+. . D G F C
+. . K K B C
+. A A . B C

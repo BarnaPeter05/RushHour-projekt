@@ -1,5 +1,6 @@
 package command;
 
+import businesslogic.BoardService;
 import event.GameEvent;
 import event.GameEventPublisher;
 import event.GameEventType;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import model.GamePhase;
 import model.GameState;
 
 /**
@@ -67,6 +69,17 @@ public class GameEngine implements Runnable {
         } catch (RuntimeException e) {
             publish(GameEventType.ERROR, "Váratlan hiba: " + e.getMessage());
         }
+        checkGameEnd();
+    }
+
+    /** Ha a piros autó kijutott, a játék véget ér: PLAYING után SOLVED fázis következik. */
+    private void checkGameEnd() {
+        BoardService service = state.getBoardService();
+        if (state.getPhase() == GamePhase.PLAYING && service != null && service.isSolved()) {
+            state.setPhase(GamePhase.SOLVED);
+            publish(GameEventType.GAME_ENDED, "Gratulálok, " + state.getPlayerName() + "! A(z) "
+                    + state.getLevelName() + " pályát " + service.getMoveCount() + " lépésből oldottad meg.");
+        }
     }
 
     private void reportUnavailable(String input) {
@@ -83,3 +96,4 @@ public class GameEngine implements Runnable {
         publisher.publish(new GameEvent(type, message));
     }
 }
+
